@@ -3,10 +3,63 @@
 #include <stdarg.h>
 
 /**
- * _printf - produces output according to a format
- * @format: the string character
- * @...: the variable functions
- * Return: count
+ * print_character - prints the character format
+ * @args: the type of argument
+ * @count: the number of characters
+ *
+ * Return: 0 success
+ */
+int print_character(va_list args, int *count)
+{
+	char c = (char) va_arg(args, int);
+
+	*count += printf("%c", c);
+	return (0);
+}
+/**
+ * print_string - prints the string format
+ * @args: the type of argument
+ * @count: the number of characters
+ *
+ * Return: 0 success
+ */
+int print_string(va_list args, int *count)
+{
+	char *s = va_arg(args, char *);
+
+	*count += printf("%s", s);
+	return (0);
+}
+/**
+ * print_percent - prints the percentage
+ * @count: the number of characters
+ *
+ * Return: 0 success
+ */
+int print_percent(int *count)
+{
+	*count += printf("%%");
+	return (0);
+}
+/**
+ * print_integer - prints the integer format (d and i)
+ * @args: the type of argument
+ * @count: the number of characters
+ *
+ * Return: 0 success
+ */
+int print_integer(va_list args, int *count)
+{
+	int num = va_arg(args, int);
+
+	*count += printf("%d", num);
+	return (0);
+}
+/**
+ * _printf - prints outputt according to format
+ * @format: the type of character
+ * @...: the variable function elements
+ * Return: count of characters printed
  */
 int _printf(const char *format, ...)
 {
@@ -22,28 +75,38 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 				case 'c':
-					{
-						char c = (char) va_arg(args, int);
-
-						count += printf("%c\n", c);
-						break;
-					}
-
-					case 's':
-					{
-						char *s = va_arg(args, char *);
-
-						count += printf("%s\n", s);
-						break;
-					}
-
-					case '%':
-					count += printf("%%\n");
+					print_character(args, &count);
 					break;
-
-					default:
+				case 's':
+					print_string(args, &count);
+					break;
+				case 'd':
+				case 'i':
+					print_integer(args, &count);
+					break;
+				case 'u':
+					count += print_unsigned integer(args, &count), format++;
+					break;
+				case 'o':
+					count += print_octal(args, &count), format++;
+					break;
+				case 'x':
+					count += print_hexadecimal(args, &count), format++;
+					break;
+				case 'p':
+					count += print_address(args, &count), format++;
+					break;
+				case '%':
+					print_percent(&count);
+					break;
+				default:
 					break;
 			}
+		}
+		else
+		{
+			putchar(*format);
+			count++;
 		}
 		format++;
 	}
