@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include "helpers.h"
 
 /**
  * print_unsigned_int - prints unsigned integer format
@@ -25,7 +26,6 @@ int print_unsigned_int(va_list args, int *count)
  */
 int print_octal(va_list args, int *count)
 {
-
 	unsigned int num = va_arg(args, unsigned int);
 
 	*count += printf("%o", num);
@@ -60,13 +60,13 @@ int print_address(va_list args, int *count)
 	return (0);
 }
 /**
- * print_unknown - prints unknown type
- * @count: the number of characters
- *
- * Return: 0 success
+ * print_unknown - handles unknown format
+ * @count: number of arguments
+ * Return: the number of arguments
  */
 int print_unknown(int *count)
 {
-	*count += printf("Unknown type");
-	return (0);
+	putchar('%');
+	(*count)++;
+	return (*count);
 }
