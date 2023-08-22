@@ -5,9 +5,8 @@
 #include "printf-helpers.h"
 /**
  * _printf - prints output according to format
- * @format: the type of character
- * @...: the variable function elements
- * Return: count of characters printed
+ * @format: the type of argument
+ * Return: the number of characters printed
  */
 int _printf(const char *format, ...)
 {
@@ -33,7 +32,7 @@ int _printf(const char *format, ...)
 					print_integer(args, &count);
 					break;
 				case 'u':
-					print_unsigned(args, &count);
+					print_unsigned_int(args, &count);
 					break;
 				case 'o':
 					print_octal(args, &count);
@@ -48,7 +47,9 @@ int _printf(const char *format, ...)
 					print_percent(&count);
 					break;
 				default:
+					print_unknown(&count);
 					break;
+
 			}
 		}
 		else

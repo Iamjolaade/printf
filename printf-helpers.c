@@ -4,13 +4,13 @@
 #include <stdarg.h>
 
 /**
- * print_unsigned - prints unsigned integer format
+ * print_unsigned_int - prints unsigned integer format
  * @args: the type of argument
  * @count: the number of characters
  *
  * Return: 0 success
  */
-int print_unsigned(va_list args, int *count)
+int print_unsigned_int(va_list args, int *count)
 {
 	unsigned int num = va_arg(args, unsigned int);
 
