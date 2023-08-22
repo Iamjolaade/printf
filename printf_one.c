@@ -83,6 +83,9 @@ int _printf(const char *format, ...)
 				case 'i':
 					print_integer(args, &count);
 					break;
+				case 'p':
+					print_address(args, &count);
+					break;
 				case '%':
 					print_percent(&count);
 					break;
