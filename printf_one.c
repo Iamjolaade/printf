@@ -83,18 +83,6 @@ int _printf(const char *format, ...)
 				case 'i':
 					print_integer(args, &count);
 					break;
-				case 'u':
-					print_unsigned_int(args, &count);
-					break;
-				case 'o':
-					print_octal(args, &count);
-					break;
-				case 'X':
-					print_hexadecimal(args, &count);
-					break;
-				case 'p':
-					print_address(args, &count);
-					break;
 				case '%':
 					print_percent(&count);
 					break;
