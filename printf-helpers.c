@@ -1,5 +1,4 @@
 #include "main.h"
-#include "printf-helpers.h"
 #include <stdio.h>
 #include <stdarg.h>
 
@@ -26,6 +25,7 @@ int print_unsigned_int(va_list args, int *count)
  */
 int print_octal(va_list args, int *count)
 {
+
 	unsigned int num = va_arg(args, unsigned int);
 
 	*count += printf("%o", num);
