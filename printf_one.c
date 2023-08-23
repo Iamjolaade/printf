@@ -77,7 +77,7 @@ int _printf(const char *format, ...)
 					print_character(args, &count);
 					break;
 				case 's':
-					count += fputs(va_arg(args, char *), stdout);
+					print_string(args, &count);
 					break;
 				case 'd':
 				case 'i':
@@ -92,6 +92,7 @@ int _printf(const char *format, ...)
 				case 'o':
 					print_octal(args, &count);
 					break;
+				case 'x':
 				case 'X':
 					print_hexadecimal(args, &count);
 					break;
