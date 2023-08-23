@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include <unistd.h>
 #include "helpers.h"
 
 /**
@@ -93,6 +94,8 @@ int _printf(const char *format, ...)
 					print_octal(args, &count);
 					break;
 				case 'x':
+					print_hexadecimal(args, &count);
+					break;
 				case 'X':
 					print_hexadecimal(args, &count);
 					break;
