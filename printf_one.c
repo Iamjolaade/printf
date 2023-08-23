@@ -77,7 +77,7 @@ int _printf(const char *format, ...)
 					print_character(args, &count);
 					break;
 				case 's':
-					print_string(args, &count);
+					count += fputs(va_arg(args, char *), stdout);
 					break;
 				case 'd':
 				case 'i':
