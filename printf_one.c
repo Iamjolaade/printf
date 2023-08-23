@@ -100,7 +100,8 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					putchar('%');
-					count++;
+					putchar(*format);
+					count += 2;
 					break;
 
 			}

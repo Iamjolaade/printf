@@ -2,6 +2,7 @@
 #define HELPERS_H
 
 #include <stdarg.h>
+#include <stdio.h>
 
 int print_unsigned_int(va_list args, int *count);
 int print_octal(va_list args, int *count);
