@@ -4,38 +4,6 @@
 #include "helpers.h"
 #include <unistd.h>
 
-#define BUFFER_SIZE 1024
-
-static char local_buffer[BUFFER_SIZE];
-static int buffer_index = 0;
-
-/**flush_local_buffer - fulshes the local buffer
- *
- */
-static void flush_local_buffer()
-{
-	if (buffer_index > 0)
-	{
-		write(1, local_buffer, buffer_index);
-		buffer_index = 0;
-	}
-}
-void add_to_local_buffer(char c)
-{
-	if (buffer_index < BUFFER_SIZE)
-	{
-		local_buffer[buffer_index++] = c;
-	}
-	else
-	{
-		flush_local_buffer();
-		write(1, &c, 1);
-	}
-}
-void flush_remaining_buffer()
-{
-	flush_local_buffer();
-}
 /**
  * print_unsigned_int - prints unsigned integer format
  * @args: the type of argument

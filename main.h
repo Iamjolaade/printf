@@ -17,6 +17,7 @@ int print_hexadecimal(va_list args, int *count);
 int print_octal(va_list args, int *count);
 int print_unsigned_int(va_list args, int *count);
 int printf_two(const char *format, va_list args);
-int print_binary(unsigned int num);
+void print_binary(unsigned int num, int *count);
+void print_reversed_string(va_list args, int *count);
 
 #endif

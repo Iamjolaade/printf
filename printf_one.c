@@ -112,6 +112,12 @@ int _printf(const char *format, ...)
 				case '%':
 					print_percent(&count);
 					break;
+				case 'r':
+					print_reversed_string(args, &count);
+					break;
+				case 'b':
+					print_binary(va_arg(args, unsigned int), &count);
+					break;
 				default:
 					putchar('%');
 					putchar(*format);
