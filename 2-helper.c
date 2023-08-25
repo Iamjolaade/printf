@@ -51,3 +51,28 @@ int print_hexadecimal_upper(va_list args, int *count)
 	*count += printf("%X", num);
 	return (0);
 }
+/**
+ * print_custom_string - prints the string format with non-printable characters escaped
+ * @args: the type of argument
+ * @count: the number of characters
+ *
+ * Return: 0 success
+ */
+int print_custom_string(va_list args, int *count)
+{
+	char *s = va_arg(args, char *);
+
+	while (*s)
+	{
+		if (*s < 32 || *s >= 127)
+		{
+			*count += printf("\\x%02X", (unsigned char)(*s));
+		}
+		else
+		{
+			*count += putchar(*s);
+		}
+		s++;
+	}
+	return (0);
+}

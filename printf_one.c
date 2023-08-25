@@ -118,6 +118,9 @@ int _printf(const char *format, ...)
 				case 'b':
 					print_binary(va_arg(args, unsigned int), &count);
 					break;
+				case 'S':
+					print_custom_string(args, &count);
+					break;
 				default:
 					putchar('%');
 					putchar(*format);
