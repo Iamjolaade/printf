@@ -3,12 +3,12 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 
 /**
  * print_reversed_string - prints the reversed string
  * @count: the number of arguments
- * @args: the ...
- *
+ * @args: the pointer
  * Return: 0
  */
 void print_reversed_string(va_list args, int *count)
