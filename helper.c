@@ -39,11 +39,11 @@ int print_octal(va_list args, int *count)
  *
  * Return: 0 success
  */
-int print_hexadecimal(va_list args, int *count)
+int print_hexadecimal_lower(va_list args, int *count)
 {
 	unsigned int num = va_arg(args, unsigned int);
 
-	*count += printf("%X", num);
+	*count += printf("%x", num);
 	return (0);
 }
 /**

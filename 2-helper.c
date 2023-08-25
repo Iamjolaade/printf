@@ -38,3 +38,16 @@ void print_binary(unsigned int num, int *count)
 	}
 	*count += printf("%d", num % 2);
 }
+/**
+ * print_hexadecimal_upper - prints the hexadecimal format in lowercase
+ * @args: the type of argument
+ * @count: the number of characters
+ *
+ * Return: 0 success
+ */
+int print_hexadecimal_upper(va_list args, int *count)
+{
+	unsigned int num = va_arg(args, unsigned int);
+	*count += printf("%X", num);
+	return (0);
+}

@@ -104,10 +104,10 @@ int _printf(const char *format, ...)
 					print_octal(args, &count);
 					break;
 				case 'x':
-					print_hexadecimal(args, &count);
+					print_hexadecimal_lower(args, &count);
 					break;
 				case 'X':
-					print_hexadecimal(args, &count);
+					print_hexadecimal_upper(args, &count);
 					break;
 				case '%':
 					print_percent(&count);
